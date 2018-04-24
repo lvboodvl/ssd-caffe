@@ -1,0 +1,29 @@
+train_net: "SE-RSSD/proto-lrelu/train.prototxt"
+test_net: "SE-RSSD/proto-lrelu/test.prototxt"
+test_iter: 500 #2000/4
+test_interval: 500
+base_lr: 1e-4
+display: 50
+max_iter: 200000
+lr_policy: "multistep"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.001 #0.0005
+snapshot: 10000
+snapshot_prefix: "SE-RSSD/snapshots-lrelu/se-rssd"
+solver_mode: GPU
+device_id: 0
+debug_info: false
+#snapshot_after_train: false
+#test_initialization: true
+average_loss: 10
+stepvalue: 50000
+stepvalue: 70000
+stepvalue: 90000
+iter_size: 4
+type: "Adam" #SGD
+########################  SSD test performace ##############################
+eval_type: "detection"
+ap_version: "11point"  #a-p 11point
+show_per_class_result: true # each class AP
+show_pr_value: true # recall vs presicion
